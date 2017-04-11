@@ -35,8 +35,8 @@ __email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
 
 class WifiModulePoprow(modules.DeviceModule, WiFiNetDevice):
     def __init__(self):
-        super(WifiModule, self).__init__()
-        self.log = logging.getLogger('WifiModule')
+        super(WifiModulePoprow, self).__init__()
+        self.log = logging.getLogger('WifiModulePoprow')
         self.phyName = None
         self.phyIndex = None
         self.channel = None
