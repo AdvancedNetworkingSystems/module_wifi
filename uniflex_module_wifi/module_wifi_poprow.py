@@ -47,12 +47,12 @@ class WifiModulePoprow(modules.DeviceModule, WiFiNetDevice):
     @modules.on_start()
     def my_start_function(self):
         found = False
-        for card in pyw.phylist():
+        for phy in pyw.phylist():
             phy_info = pyw.phyinfo(pyw.Card(phy[0], None, 0))
             if bool(phy_info['bands']['5GHz']['VHT']):
                 found = True
-                self.phyIndex = card[0]
-                self.phyName = card[1]
+                self.phyIndex = phy[0]
+                self.phyName = phy[1]
 
         if not found:
             self.log.error("Device {} not found".format(self.device))
