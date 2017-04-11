@@ -47,12 +47,16 @@ class WifiModulePoprow(modules.DeviceModule, WiFiNetDevice):
     @modules.on_start()
     def my_start_function(self):
         found = False
+        # This is only a basic example that show how it is possible to look
+        # for a PHY with the desired capabilities (in this case VHT support on
+        # the 5GHz band).
         for phy in pyw.phylist():
             phy_info = pyw.phyinfo(pyw.Card(phy[0], None, 0))
             if bool(phy_info['bands']['5GHz']['VHT']):
                 found = True
                 self.phyIndex = phy[0]
                 self.phyName = phy[1]
+                print(phy_info)
 
         if not found:
             self.log.error("Device {} not found".format(self.device))
