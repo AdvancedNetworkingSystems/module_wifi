@@ -116,6 +116,10 @@ class WifiModule(modules.DeviceModule, WiFiNetDevice):
         return pinfo
 
 
+    def get_phy_list(self):
+        return pyw.phylist()
+
+
     def add_interface(self, ifaceName, mode, **kwargs):
         if ifaceName in pyw.winterfaces():
             return False
